@@ -27,7 +27,27 @@ it is not included in the file.
 
 ### Brakeman.ignore
 
-WIP: ここにGitHub Actionsでの使い方を書く
+Please write the your GitHub actions workflow file as follows:
+
+```yaml
+jobs:
+  lint-workflow:
+    name: Check dist/
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - name: Brakeman ignore reason check
+        id: valid-json
+        # Please specifc version
+        uses: bun913/please-write-ignore-reason@v0.9.1
+        with:
+          # If you want to multiple files, please separate with comma
+          fileListString: samples/brakeman.ignore,samples/valid2.json
+```
 
 ## Publishing a New Release
 
