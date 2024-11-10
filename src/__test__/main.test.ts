@@ -78,5 +78,4 @@ describe('checkBrakeman', () => {
       expect(setFailedMock).toHaveBeenCalled()
     })
   })
-
 })
