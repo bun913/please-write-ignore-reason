@@ -43,7 +43,7 @@ jobs:
       - name: Brakeman ignore reason check
         id: valid-json
         # Please specifc version
-        uses: bun913/please-write-ignore-reason@v0.9.1
+        uses: bun913/please-write-ignore-reason@v0.9.2
         with:
           # If you want to multiple files, please separate with comma
           fileListString: samples/brakeman.ignore,samples/valid2.json
