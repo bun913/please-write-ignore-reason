@@ -25759,7 +25759,9 @@ const IgnoredWarningSchema = v.looseObject({
     location: v.nullable(BrakemanLocationSchema),
     user_input: v.nullable(v.string()),
     confidence: v.nullable(v.string()),
-    note: v.pipe(v.string('Note cannot be empty string'), v.minLength(5))
+    note: v.pipe(v.string('note property cannot be empty string'), v.minLength(5, issue => {
+        return `note property must be at least 5 characters long. Current length: ${issue.input.length}`;
+    }))
 });
 exports.BrakemanIgnoreFileSchema = v.object({
     ignored_warnings: v.array(IgnoredWarningSchema),
