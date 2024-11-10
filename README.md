@@ -27,7 +27,7 @@ it is not included in the file.
 
 ### Brakeman.ignore
 
-Please write the your GitHub actions workflow file as follows:
+Please write the your GitHub Actions workflow file as follows:
 
 ```yaml
 jobs:

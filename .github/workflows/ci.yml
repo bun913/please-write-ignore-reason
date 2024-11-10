@@ -62,3 +62,17 @@ jobs:
       - name: Print Output
         id: output
         run: echo "${{ steps.test-action.outputs.result }}"
+
+      - name: Failed beauce of including no-note file
+        id: failed-action
+        uses: ./
+        with:
+          fileListString: 'src/modules/brakeman/__test__/valid.json,src/modules/brakeman/__test__/noNote_brakeman.ignore.json'
+        continue-on-error: true
+
+      - name: Failed beauce of including no-exist file path
+        id: failed-action-no-file
+        uses: ./
+        with:
+          fileListString: 'no_exist_file.json,src/modules/brakeman/__test__/noNote_brakeman.ignore.json'
+        continue-on-error: true
