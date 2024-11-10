@@ -16,7 +16,9 @@ describe('BrakemanIgnoreParser#parse', () => {
       const path = join(__dirname, 'noNote_brakeman.ignore.json')
       const sut = new BrakemanIgnoreValidator(path)
       expect(() => sut.validate()).toThrow(BrakemanValidateError)
-      expect(() => sut.validate()).toThrow('Invalid length')
+      expect(() => sut.validate()).toThrow(
+        'note property must be at least 5 characters long'
+      )
     })
   })
 
