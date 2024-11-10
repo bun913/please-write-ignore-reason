@@ -57,7 +57,7 @@ jobs:
         id: test-action
         uses: ./
         with:
-          fileListString: 'src/modules/brakeman/__test__/valid.json,src/modules/brakeman/__test__/valid.json2'
+          fileListString: 'src/modules/brakeman/__test__/valid.json,src/modules/brakeman/__test__/valid2.json'
 
       - name: Print Output
         id: output
