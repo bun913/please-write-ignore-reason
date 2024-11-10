@@ -28,7 +28,7 @@ describe('checkBrakeman', () => {
   })
 
   describe('when the valide file list string is given', () => {
-    it("sets the output to 'success'", async () => {
+    it("sets the output to 'success'", () => {
       const validPath = path.join(
         __dirname,
         '..',
@@ -54,7 +54,7 @@ describe('checkBrakeman', () => {
         }
       })
 
-      await main.checkBrakeman()
+      main.checkBrakeman()
       expect(runMock).toHaveReturned()
 
       expect(setOutputMock).toHaveBeenNthCalledWith(1, 'result', 'success')
@@ -63,7 +63,7 @@ describe('checkBrakeman', () => {
   })
 
   describe('when the invalide file list string is given', () => {
-    it('sets a failed status', async () => {
+    it('sets a failed status', () => {
       getInputMock.mockImplementation(name => {
         switch (name) {
           case 'fileListString':
@@ -73,7 +73,7 @@ describe('checkBrakeman', () => {
         }
       })
 
-      await main.checkBrakeman()
+      main.checkBrakeman()
       expect(runMock).toHaveReturned()
       expect(setFailedMock).toHaveBeenCalled()
     })

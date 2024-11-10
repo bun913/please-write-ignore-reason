@@ -11,12 +11,13 @@ export class BrakemanIgnoreValidator {
     this.filePathList = fileList
   }
 
-  public validate(): void {
+  validate(): void {
     for (const filePath of this.filePathList) {
       if (!fs.existsSync(filePath)) {
         throw new BrakemanFileNotExistError(filePath)
       }
       const file = fs.readFileSync(filePath, 'utf-8')
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const json = JSON.parse(file)
       try {
         v.parse(BrakemanIgnoreFileSchema, json)

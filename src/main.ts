@@ -5,7 +5,7 @@ import { BrakemanIgnoreValidator } from './modules/brakeman/validator'
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
  */
-export async function checkBrakeman(): Promise<void> {
+export function checkBrakeman(): void {
   try {
     const fileListString = core.getInput('fileListString')
     const validator = new BrakemanIgnoreValidator(fileListString)

@@ -25662,7 +25662,7 @@ const validator_1 = __nccwpck_require__(5157);
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
  */
-async function checkBrakeman() {
+function checkBrakeman() {
     try {
         const fileListString = core.getInput('fileListString');
         const validator = new validator_1.BrakemanIgnoreValidator(fileListString);
@@ -25816,6 +25816,7 @@ class BrakemanIgnoreValidator {
                 throw new errors_1.BrakemanFileNotExistError(filePath);
             }
             const file = fs.readFileSync(filePath, 'utf-8');
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             const json = JSON.parse(file);
             try {
                 v.parse(type_1.BrakemanIgnoreFileSchema, json);
