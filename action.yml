@@ -1,6 +1,8 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'please-write-ignore-reason'
+description:
+  'This action will check your static code analysis files to see if they have a
+  reason for ignoring a rule.Currently, this action supports only Brakeman.'
+author: 'bun913'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,15 +11,15 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  fileListString:
+    description: 'Comma separated list of files to check'
     required: true
-    default: '1000'
+    default: './brakeman.ignore'
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  result:
+    description: 'Check result'
 
 runs:
   using: node20

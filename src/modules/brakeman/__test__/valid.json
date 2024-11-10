@@ -1,0 +1,66 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Remote Code Execution",
+      "warning_code": 25,
+      "fingerprint": "006ac5fe3834bf2e73ee51b67eb111066f618be46e391d493c541ea2a906a82f",
+      "check_name": "Deserialize",
+      "message": "`Oj.load` called with parameter value",
+      "file": "app/controllers/users_controller.rb",
+      "line": 52,
+      "link": "https://brakemanscanner.org/docs/warning_types/unsafe_deserialization",
+      "code": "Oj.load(params[:json], :mode => :object)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UsersController",
+        "method": "some_api"
+      },
+      "user_input": "params[:json]",
+      "confidence": "High",
+      "note": "It will be handled by the issue: #45"
+    },
+    {
+      "warning_type": "Remote Code Execution",
+      "warning_code": 25,
+      "fingerprint": "3bc375c9cb79d8bcd9e7f1c09a574fa3deeab17f924cf20455cbd4c15e9c66eb",
+      "check_name": "Deserialize",
+      "message": "`Oj.object_load` called with parameter value",
+      "file": "app/controllers/users_controller.rb",
+      "line": 53,
+      "link": "https://brakemanscanner.org/docs/warning_types/unsafe_deserialization",
+      "code": "Oj.object_load(params[:json], :mode => :strict)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UsersController",
+        "method": "some_api"
+      },
+      "user_input": "params[:json]",
+      "confidence": "High",
+      "note": "Ignored reason: https://example.com/issue/45/comments/123"
+    },
+    {
+      "warning_type": "Remote Code Execution",
+      "warning_code": 25,
+      "fingerprint": "97ecaa5677c8eadaed09217a704e59092921fab24cc751e05dfb7b167beda2cf",
+      "check_name": "Deserialize",
+      "message": "`Oj.load` called with parameter value",
+      "file": "app/controllers/users_controller.rb",
+      "line": 51,
+      "link": "https://brakemanscanner.org/docs/warning_types/unsafe_deserialization",
+      "code": "Oj.load(params[:json])",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UsersController",
+        "method": "some_api"
+      },
+      "user_input": "params[:json]",
+      "confidence": "High",
+      "note": "params[:json] is fixed value and this can't fill from user input, so we decied to ignore this warnings"
+    }
+  ],
+  "updated": "2019-04-02 12:15:05 -0700",
+  "brakeman_version": "4.5.0"
+}
